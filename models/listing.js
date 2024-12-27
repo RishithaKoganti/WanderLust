@@ -14,6 +14,7 @@ const listingSchema = new mongoose.Schema({
   title:{
     type: String,
     maxlenght: 100,
+    required: true,
   },
   description:{
     type: String,
@@ -24,12 +25,15 @@ const listingSchema = new mongoose.Schema({
   },
   price:{
     type: Number,
+    required: true,
   },
   location:{
     type: String,
+    required: true,
   },
   country:{
     type: String,
+    required: true,
   }
 })
 const Listing = mongoose.model("Listing",listingSchema);
