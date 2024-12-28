@@ -14,7 +14,6 @@ const listingSchema = new mongoose.Schema({
   title:{
     type: String,
     maxlenght: 100,
-    required: true,
   },
   description:{
     type: String,
@@ -22,19 +21,20 @@ const listingSchema = new mongoose.Schema({
   },
   image:{
     type: String,
+    set: (v) => v === " "?"https://unsplash.com/photos/a-living-room-filled-with-furniture-and-lots-of-windows-bw0UE0UOIwo": v,
   },
   price:{
     type: Number,
-    required: true,
+   
   },
   location:{
     type: String,
-    required: true,
+   
   },
   country:{
     type: String,
-    required: true,
+    
   }
 })
 const Listing = mongoose.model("Listing",listingSchema);
-modules.export = Listing;
+module.exports = Listing;
