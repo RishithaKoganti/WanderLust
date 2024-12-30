@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index Route</title>
-</head>
+<% layout("/layouts/boilerplate.ejs") -%>
 <body>
-    <h1>All Listings</h1>
-    <form method="GET" action="/listing/new"><button>New Entry</button></form></a>
-        <%for(let listing of listings){%>
-        <ul>
-            <li><a href="/listing/<%= listing._id %>"><%= listing.title %></li>
-        </ul>
-        <%}%>
+    <div class="row row-cols-lg-6">
+    <%for(let listing of listings){%>
+    <div class="card" style="width: 23rem;">
+        <img src="https://media.istockphoto.com/id/119926339/photo/resort-swimming-pool.jpg?s=612x612&w=0&k=20&c=9QtwJC2boq3GFHaeDsKytF4-CavYKQuy1jBD2IRfYKc=" class="card-img-top" alt="listing-image">
+        <div class="card-body">
+          <p class="card-text"><b><%= listing.title %></b></p><br>
+          <p><%= listing.description %></p>
+          <p>&#36;<%= listing.price %>/night</p>
+        </div>
+      </div>
+      <%}%>
+    </div>
+       
+        
     
 </body>
-</html>

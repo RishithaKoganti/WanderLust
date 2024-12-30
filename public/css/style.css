@@ -1,0 +1,40 @@
+.fa-compass{
+    color: rgb(233, 95, 118);
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+}
+.navbar{
+    background-color: rgb(240, 238, 238);
+}
+
+.footer{
+    color: #222222;
+    text-align: center;
+    font-weight: none;
+    background-color: rgb(240, 238, 238);
+    justify-content: center;
+    align-items: center;
+
+}
+.f-info-socials{
+    margin-right: 1.2rem;
+    font-size: 1.2rem;
+}
+.card{
+margin-bottom: 1rem !important;
+margin-left: 0.25rem !important;
+    
+
+}
+.card-img-top{
+    width: 100%;
+    height: 100%;
+}
+.row{
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    margin-left: 1rem !important;
+    width: 100%;
+}
