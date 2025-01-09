@@ -2,11 +2,11 @@
 <body>
     <h1>New entry</h1>
     <form method="POST" action="/listing">
-        <input type="text" placeholder="entry title" name = "listing[title]"><br><br>
-        <textarea placeholder="description" name = "listing[description]"></textarea><br><br>
-        <input type="number" placeholder="entry price" name ="listing[cost]"><br><br>
-        <input type="text" placeholder="location" name = "listing[location]"><br><br>
-        <input type="text" placeholder="country" name = "listing[country]"><br><br>
+        <input type="text" placeholder="entry title" name = "listing[title]" required><br><br>
+        <textarea placeholder="description" name = "listing[description]" required></textarea><br><br>
+        <input type="number" placeholder="entry price" name ="listing[cost]" required><br><br>
+        <input type="text" placeholder="location" name = "listing[location]" required><br><br>
+        <input type="text" placeholder="country" name = "listing[country]" required><br><br>
         <button>Create new entry</button>
     </form>
 </body>
