@@ -1,12 +1,29 @@
 <% layout("/layouts/boilerplate.ejs") -%>
 <body>
     <form method="POST" action="/listing/<%= listing._id %>?_method=PUT">
-    <input type="text" placeholder="entry title" name = "listing[title]" value="<%= listing.title %>"><br><br>
-    <textarea placeholder="description" name = "listing[description]"><%= listing.description %></textarea><br><br>
-    <lable><input type="number" placeholder="entry price" name ="listing[cost]" value="<%= listing.price %>"></lable><br><br>
-    <input type="text" placeholder="country" name = "listing[country]" value="<%= listing.country %>"><br><br>
-    <input type="text" placeholder="location" name = "listing[location]" value="<%= listing.location %>"><br><br>
-    
-    <button>Update</button>
+        <div class="mb-3 cols-4 offset-3">
+        <label for="exampleInputEmail1" class="form-label"><input type="text" placeholder="entry title" name = "listing[title]" value="<%= listing.title %>"></label>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"></label>
+        <textarea placeholder="description" name = "listing[description]"><%= listing.description %></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><input type="number" placeholder="entry price" name ="listing[cost]" value="<%= listing.price %>"></label>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><input type="text" placeholder="country" name = "listing[country]" value="<%= listing.country %>"></label>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><input type="text" placeholder="location" name = "listing[location]" value="<%= listing.location %>"></label>
+      </div>
+
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
 </form>
 </body>
