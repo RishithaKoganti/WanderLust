@@ -17,8 +17,9 @@
     background-color: rgb(240, 238, 238);
     justify-content: center;
     align-items: center;
-    
-    bottom: 0px;
+    position: relative;
+    top:20rem;
+    bottom: 0rem;
 
 }
 .f-info-socials{

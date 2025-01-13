@@ -17,6 +17,15 @@
             Delete
         </form>
         </a>
+    </div><br><br><br><br>
+    <div>
+        <hr>
+        <h4>Leave a Review</h4><br>
+        <input type="range" min="1" max="5" class="form-range" name="review[rate]"><br>
+        <textarea placeholder="type here..." cols="30" rows="4" name = "review[comment]"></textarea><br>
+        <form method="post" action="listing/<%= listings._id %>/review">
+        <button class="btn btn-dark">Submit</button>
+    </form>
     </div>
     </div>
 </body>

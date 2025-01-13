@@ -76,6 +76,13 @@ app.delete("/listing/:id",async(req,res)=>{
     res.redirect("/listing");
 })
 
+//review
+app.post("/:id/reviews",(req,res)=>{
+    let {rate} = req.params;
+
+    res.send(rate);
+})
+
 app.listen(port,()=>{
     console.log("Listening on port 8080");
 })
