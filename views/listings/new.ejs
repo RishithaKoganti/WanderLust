@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate') %>
+
+<h3 class="mb-4">Create a New Listing</h3>
+
+<form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input name="listing[title]" id="title" type="text" class="form-control" placeholder="Enter title" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea name="listing[description]" id="description" rows="3" class="form-control" placeholder="Enter description" required></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="image" class="form-label">Image</label>
+    <input name="listing[image]" id="image" type="file" class="form-control" placeholder="Enter image URL/link">
+  </div>
+
+  <div class="mb-3">
+    <label for="price" class="form-label">Price per Night (₹)</label>
+    <input name="listing[price]" id="price" type="number" class="form-control" placeholder="Enter price" required min="0">
+  </div>
+
+  <div class="mb-3">
+    <label for="country" class="form-label">Country</label>
+    <input name="listing[country]" id="country" type="text" class="form-control" placeholder="Enter country" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input name="listing[location]" id="location" type="text" class="form-control" placeholder="Enter location" required>
+  </div>
+
+  <button type="submit" class="btn btn-main">Add Listing</button>
+</form>

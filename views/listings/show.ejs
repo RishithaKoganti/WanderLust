@@ -1,0 +1,66 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container">
+  <h2 class="fw-bold mb-2"><%= listing.title %></h2>
+  <img src="<%= listing.image.url %>" alt="<%= listing.title %>" class="img-fluid rounded-3 mb-4" style="max-height: 300px; object-fit: cover; width: 60%;">
+
+  <p class="cols-4 offset-6"><i>~<%=listing.owner.username%></i></p>
+  <h5 class="text-muted mb-3">₹<%= listing.price.toLocaleString("en-IN") %> / night</h5>
+
+  <p class="mb-3"><%= listing.description %></p>
+  <p><strong>Location:</strong> <%= listing.location %></p>
+  <p><strong>Country:</strong> <%= listing.country %></p>
+<%if(currUser && currUser._id.equals(listing.owner._id)){ %>
+  <div class="mt-4 d-flex gap-3">
+    <a href="/listings/<%= listing._id %>/edit" class="btn btn-main">Edit this Listing</a>
+
+    <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+      <button class="btn btn-dark">Delete this Listing</button>
+    </form>
+  </div>
+  <%}%>
+</div>
+
+<hr class="my-5">
+
+<h4>Add a Review</h4>
+<form action="/listings/<%= listing._id %>/reviews" method="POST" class="mb-5">
+  <div class="mb-3">
+    <label for="rating" class="form-label">Rating (1 to 5)</label>
+    <input type="range" min="1" max="5" class="form-range" name="review[rating]" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="comment" class="form-label">Comment</label>
+    <textarea name="review[comment]" id="comment" class="form-control" rows="4" required placeholder="Write your thoughts..."></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-main">Add Review</button>
+</form>
+
+<hr class="my-4">
+
+<h4 class="mb-3">All Reviews</h4>
+
+<% if (listing.reviews.length === 0) { %>
+  <p class="text-muted">No reviews yet. Be the first to leave one!</p>
+<% } else { %>
+  <% listing.reviews.forEach((review) => { %>
+    <div class="card mb-3 shadow-sm">
+      <div class="card-body">
+        <h6>
+          Rating:
+          <% for(let i = 1; i <= 5; i++) { %>
+            <% if (i <= review.rating) { %> ⭐ <% } else { %> ☆ <% } %>
+          <% } %>
+        </h6>
+        <p class="card-text"><%= review.comment %></p>
+
+        <!-- Delete Review Button -->
+        <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-sm btn-danger mt-2">Delete Review</button>
+        </form>
+      </div>
+    </div>
+  <% }) %>
+<% } %>
