@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "122.16.0"
+    "node": "16.20.1"
   },
   "name": "wanderlust",
   "version": "1.0.0",
