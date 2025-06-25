@@ -104,9 +104,10 @@ app.use((req,res,next)=>{
 })
 
 // Root Route
-app.get("/listings", (req, res) => {
-  res.render("listings/index.ejs");
-});
+app.get("/", wrapAsync(async (req, res) => {
+  const allListings = await Listing.find();
+  res.render("listings/index.ejs", { allListings });
+}));
 
 app.use("/listings",listing);
 app.use("/listings",review);
